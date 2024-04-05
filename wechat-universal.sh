@@ -80,14 +80,17 @@ BWRAP_ARGS=(
 
     # /usr
     --ro-bind /usr{,}
-    --symlink usr/lib /lib
-    --symlink usr/lib /lib64
+    --ro-bind /usr{,}
+    # --symlink usr/lib /lib
+    # --symlink usr/lib /lib64
+    --ro-bind /lib /lib
+    --ro-bind /lib64 /lib64
     --symlink usr/bin /bin
     --symlink usr/bin /sbin
     --bind /usr/bin/{true,lsblk}
 
     # /sandbox
-    --ro-bind /{usr/lib/flatpak-xdg-utils,sandbox}/xdg-open
+    --ro-bind /{usr/libexec/flatpak-xdg-utils,sandbox}/xdg-open
     --ro-bind /{usr/share/wechat-universal/usr/bin,sandbox}/dde-file-manager
 
     # /dev
