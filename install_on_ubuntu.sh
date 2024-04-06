@@ -34,9 +34,15 @@ echo "Package download url: $package_url"
 
 curl -L $package_url -o $package_name
 
-pkgdir=/
+pkgdir='pkgdir'
 mkdir -p $pkgdir
 
 build
 
 package
+
+sudo cp -av pkgdir/* /
+
+rm $package_name
+rm -rf $pkgdir
+rm ${_lib_uos}.so
