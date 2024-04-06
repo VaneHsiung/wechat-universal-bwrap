@@ -41,7 +41,7 @@ build
 
 package
 
-sudo cp -av pkgdir/* /
+sudo cp -Rv --no-preserve=mode,ownership pkgdir/* /
 
 rm $package_name
 rm -rf $pkgdir
